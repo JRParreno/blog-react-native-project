@@ -27,3 +27,39 @@
 
 9. Screens Folder
    - This is folder contains all of your screens.
+
+
+# shadow generator
+link: https://ethercreative.github.io/react-native-shadow-generator/
+
+# IOnicons
+link: https://ionic.io/ionicons
+
+# react native docs
+link: https://reactnative.dev/
+
+
+# ENV SETUP
+# React Native Environment Setup:
+
+1. Download node : https://nodejs.org/en/download/
+
+2. Download Visual Studio Code: https://code.visualstudio.com/download
+
+3. Open up your terminal (Mac/Linux) or cmd/powershell with admin rights (Windows)
+
+4. After installing node, type this on your command line interface: npm install --global yarn
+
+5. After installing yarn, type this on your command line interface: yarn global add expo-cli
+
+6. After installing expo-cli, type this on your command line interface: expo init RayaTraining
+
+7. After setting up, type this command : cd RayaTraining
+
+8. Type this command next : yarn add @react-navigation/native
+
+9. Lastly, paste this command :
+
+ expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+--end of environment setup--
