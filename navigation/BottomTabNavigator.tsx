@@ -12,8 +12,10 @@ import { PixelRatio, Platform } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import HomeScreen from '../screens/Home/HomeScreen';
+import LoginScreen from '../screens/Profile/LoginScreen';
+import RegisterScreen from '../screens/Profile/RegisterScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, HomeParamList, TabTwoParamList } from '../types';
+import { BottomTabParamList, HomeParamList, TabTwoParamList, NonAuthParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -27,7 +29,7 @@ export default function BottomTabNavigator() {
         activeTintColor: 'white', showLabel: false, keyboardHidesTabBar: true,
         style: {
           backgroundColor: '#262626',
-          paddingTop: Platform.OS === 'ios' ? 20 : 0,
+          // paddingTop: Platform.OS === 'ios' ? 10 : 0,
           height: PixelRatio.getPixelSizeForLayoutSize(30),
           borderRadius: 20,
           position: 'absolute',
@@ -35,6 +37,7 @@ export default function BottomTabNavigator() {
           left: 20,
           bottom: 20,
           alignItems: 'center',
+          justifyContent: 'center',
           elevation: 0
         }
       }}
@@ -51,7 +54,7 @@ export default function BottomTabNavigator() {
         name="TabTwo"
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="person-circle-outline" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -80,15 +83,20 @@ function TabOneNavigator() {
   );
 }
 
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
+const TabTwoStack = createStackNavigator<NonAuthParamList>();
 
 function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator screenOptions={{ headerShown: false }}>
       <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        name="Login"
+        component={LoginScreen}
+        options={{ headerTitle: 'Login' }}
+      />
+      <TabTwoStack.Screen
+        name="Registration"
+        component={RegisterScreen}
+        options={{ headerTitle: 'Register' }}
       />
     </TabTwoStack.Navigator>
   );
